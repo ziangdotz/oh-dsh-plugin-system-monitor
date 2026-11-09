@@ -33,6 +33,7 @@
     "cordis.patch.yml",
     "icon.svg",
     "README.md",
+    "README.en.md",
     "locale",
     "docs/UI-UX.zh-CN.md",
     "docs/PLUGIN-DEVELOPMENT.zh-CN.md",
