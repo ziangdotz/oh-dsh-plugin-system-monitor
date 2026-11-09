@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "dsh-plugin-sysmon",
+    "description": "CPU, memory, network, disk and process monitoring for Windows 10/11.",
+    "detail": "README.md"
+  }
+}

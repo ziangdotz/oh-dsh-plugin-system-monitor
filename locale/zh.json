@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "dsh-plugin-sysmon",
+    "description": "面向 Windows 10/11 的 CPU、内存、网络、磁盘与进程监控。",
+    "detail": "README.md"
+  }
+}

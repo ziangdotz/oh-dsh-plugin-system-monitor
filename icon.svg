@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="dsh-sysmon">
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="dsh-plugin-sysmon">
   <rect width="64" height="64" rx="14" fill="#0b1220"/>
   <rect x="10" y="34" width="8" height="20" rx="2" fill="#22d3a6"/>
   <rect x="22" y="22" width="8" height="32" rx="2" fill="#3b82f6"/>

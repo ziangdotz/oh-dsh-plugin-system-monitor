@@ -1,50 +1,81 @@
 {
-  "name": "dsh-sysmon",
-  "version": "0.1.1",
-  "description": "btop-style host process and load monitor inside the DSH Web GUI",
+  "name": "dsh-plugin-sysmon",
+  "version": "0.1.0",
+  "description": "Windows 10/11 system monitor for the DSH Web GUI",
   "type": "module",
+  "os": [
+    "win32"
+  ],
+  "cpu": [
+    "x64"
+  ],
+  "engines": {
+    "node": ">=24.9.0",
+    "dsh": "0.2.2-rc.1"
+  },
   "main": "lib/index.js",
   "icon": "./icon.svg",
   "exports": {
     ".": "./lib/index.js",
     "./client": "./lib/client.js",
+    "./icon": "./icon.svg",
+    "./locale/*": "./locale/*",
     "./cordis.patch.yml": "./cordis.patch.yml",
     "./package.json": "./package.json"
   },
   "files": [
     "lib/index.js",
+    "lib/native/win32-x64/sysmon-probe.exe",
+    "lib/native/win32-x64/build.json",
+    "native/sysmon.c",
+    "scripts/build-native.mjs",
     "lib/client.js",
     "cordis.patch.yml",
     "icon.svg",
     "README.md",
-    "docs"
+    "locale",
+    "docs/UI-UX.zh-CN.md",
+    "docs/PLUGIN-DEVELOPMENT.zh-CN.md",
+    "docs/MEMORY.zh-CN.md",
+    "docs/windows-light.png",
+    "docs/windows-dark.png"
   ],
   "license": "MIT",
   "dsh": {
+    "manifestVersion": 1,
     "bundle": {
-      "patch": "./cordis.patch.yml"
+      "patch": "./cordis.patch.yml",
+      "platforms": [
+        "win32"
+      ]
     },
     "client": {
       "platform": "web"
     }
   },
-  "author": "Aliez Ren <aliez-ren@users.noreply.github.com>",
   "keywords": [
     "dsh",
     "dsh-plugin",
     "deepseek-harness",
-    "btop",
     "system-monitor",
     "process-monitor",
     "cpu",
     "memory"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/aliez-ren/dsh-sysmon.git"
+  "scripts": {
+    "check": "node scripts/build-client.mjs --check && node --check lib/index.js && node --check lib/client.js && node scripts/bundle-check.mjs",
+    "test": "node scripts/verify.mjs",
+    "test:client": "node scripts/client-smoke.mjs",
+    "test:native": "node scripts/native-smoke.mjs",
+    "build:native": "node scripts/build-native.mjs",
+    "test:memory": "node scripts/memory-smoke.mjs",
+    "build:client": "node scripts/build-client.mjs",
+    "test:host": "node scripts/host-smoke.mjs",
+    "test:setup": "node scripts/setup-tests.mjs"
   },
-  "homepage": "https://github.com/aliez-ren/dsh-sysmon#readme",
-  "bugs": {
-    "url": "https://github.com/aliez-ren/dsh-sysmon/issues"
+  "devDependencies": {
+    "playwright": "1.56.1",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
   }
 }
